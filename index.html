@@ -260,6 +260,75 @@
     .impact-strip{grid-template-columns:1fr 1fr;}
   }
 
+  /* ---------- GALLERY ---------- */
+  .gallery{background:var(--navy); padding:88px 0;}
+  .gallery .section-head h2, .gallery .section-head p{color:var(--paper);}
+  .gallery .section-head p{color:#B9C4CA;}
+  .gallery .eyebrow{color:var(--gold);}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;
+    max-width:var(--max); margin:0 auto; padding:0 24px;
+  }
+  .gallery-item{
+    aspect-ratio:1; border-radius:var(--radius); overflow:hidden;
+    position:relative; cursor:pointer; transition:transform .3s var(--ease);
+  }
+  .gallery-item:hover{transform:scale(1.02);}
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .gallery-overlay{
+    position:absolute; inset:0; background:rgba(10,27,39,0.4); opacity:0;
+    transition:opacity .3s var(--ease); display:flex; align-items:center; justify-content:center;
+  }
+  .gallery-item:hover .gallery-overlay{opacity:1;}
+  .gallery-overlay span{
+    background:var(--gold); color:var(--navy-deep); padding:10px 16px; border-radius:100px;
+    font-size:13px; font-weight:600;
+  }
+
+  @media (max-width:860px){
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .gallery-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- LEADERSHIP TEAM ---------- */
+  .team{background:var(--paper); border-top:1px solid rgba(16,40,58,0.08);}
+  .team .section-head h2, .team .section-head p{color:var(--navy);}
+  .team .eyebrow{color:var(--teal);}
+  .team-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+  }
+  .team-card{
+    background:var(--white); border:1px solid rgba(16,40,58,0.08);
+    border-radius:var(--radius); padding:28px 20px; text-align:center;
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+  }
+  .team-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 24px rgba(16,40,58,0.12);
+  }
+  .team-avatar{
+    width:80px; height:80px; margin:0 auto 18px; border-radius:100%;
+    background:linear-gradient(155deg, var(--teal-light), var(--green));
+    display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:600; color:var(--white);
+  }
+  .team-card h3{font-size:17px; margin:0 0 6px; color:var(--navy); font-weight:600;}
+  .team-card .team-role{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:12px;}
+  .team-card p{font-size:14px; color:var(--ink-soft); margin:0; line-height:1.5;}
+
+  @media (max-width:1100px){
+    .team-grid{grid-template-columns:repeat(3, 1fr);}
+  }
+  @media (max-width:720px){
+    .team-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .team-grid{grid-template-columns:1fr;}
+  }
+
   /* ---------- GET INVOLVED ---------- */
   .involve{background:var(--paper);}
   .involve-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
@@ -349,9 +418,7 @@
 <header class="site-nav">
   <div class="nav-inner">
     <a href="#top" class="brand">
-      <span class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v12h16V9L12 3z" stroke="#F6F3EC" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 13v8" stroke="#F6F3EC" stroke-width="1.6"/></svg>
-      </span>
+      <img src="New%20folder/logo.png" alt="YOUTH FOR POSITIVE CHANGE logo" class="brand-mark" style="width:34px; height:34px; border-radius:9px;">
       <span class="brand-text">
         <strong>YOUTH FOR POSITIVE CHANGE</strong>
         <span>Youth for Positive Change</span>
@@ -361,6 +428,8 @@
     <nav class="main-links" id="mainNav">
       <a href="#about">About</a>
       <a href="#programs">Programs</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#team">Our Team</a>
       <a href="#impact">Impact</a>
       <a href="#involve">Get Involved</a>
       <a href="#contact" class="nav-cta">Contact Us</a>
@@ -394,23 +463,7 @@
   <section class="about" id="about">
     <div class="container about-grid">
       <div class="about-visual" aria-hidden="true">
-        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="sun" cx="72%" cy="18%" r="45%">
-              <stop offset="0%" stop-color="#E4A93B" stop-opacity="0.9"/>
-              <stop offset="100%" stop-color="#E4A93B" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="400" height="500" fill="url(#sun)"/>
-          <circle cx="290" cy="90" r="46" fill="#F6F3EC" opacity="0.9"/>
-          <path d="M0,300 C80,240 160,320 240,270 C300,235 350,280 400,250 L400,500 L0,500 Z" fill="#0A1B27" opacity="0.28"/>
-          <path d="M0,360 C100,310 220,380 320,330 C360,310 380,330 400,320 L400,500 L0,500 Z" fill="#0A1B27" opacity="0.4"/>
-          <g stroke="#F6F3EC" stroke-width="2" opacity="0.5">
-            <path d="M60 420 L60 460 M45 435 L60 420 L75 435" fill="none"/>
-            <path d="M140 400 L140 460 M120 420 L140 400 L160 420" fill="none"/>
-            <path d="M220 415 L220 460 M205 430 L220 415 L235 430" fill="none"/>
-          </g>
-        </svg>
+        <img src="New%20folder/boys%20in%20asome%20project.png" alt="Youth participating in community activities" style="width:100%; height:100%; object-fit:cover;">
       </div>
       <div class="about-copy">
         <div class="eyebrow">Our Story</div>
@@ -511,6 +564,80 @@
         <div class="impact-stat">
           <div class="impact-num"><span data-count="4">4</span></div>
           <div class="impact-label">Core programs running year-round</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">In Action</div>
+        <h2>Youth leading change across Tanzania</h2>
+        <p>See our mentorship, skills training, and community service in action. These are the moments that matter.</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="New%20folder/IMG-20240324-WA0007.jpg" alt="Youth mentorship session">
+        <div class="gallery-overlay"><span>Mentorship</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="New%20folder/IMG-20240413-WA0032.jpg" alt="Skills Training program">
+        <div class="gallery-overlay"><span>Skills Training</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="New%20folder/Screenshot_20240727-122934.jpg" alt="Community service event">
+        <div class="gallery-overlay"><span>Community Service</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP TEAM -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Our Leadership</div>
+        <h2>Meet the team steering our mission</h2>
+        <p>Experienced leaders committed to youth empowerment and community service across Tanzania.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👨‍💼</div>
+          <h3>Osama</h3>
+          <div class="team-role">Chairperson</div>
+          <p>Strategic vision and organizational leadership. Oversees all programs and partnerships.</p>
+        </div>
+        <div class="team-card">
+          <img src="New%20folder/katibu.jpg" alt="Ahmed Omary" style="width:100%; height:100px; object-fit:cover; border-radius:var(--radius) var(--radius) 0 0;">
+          <h3>Ahmed Omary</h3>
+          <div class="team-role">Secretary (Katibu)</div>
+          <p>Administrative coordination and documentation. Manages communications and records.</p>
+        </div>
+        <div class="team-card">
+          <img src="New%20folder/chief%20accountant.jpg" alt="Hassan" style="width:100%; height:100px; object-fit:cover; border-radius:var(--radius) var(--radius) 0 0;">
+          <h3>Hassan</h3>
+          <div class="team-role">Chief Accountant</div>
+          <p>Financial management and budget planning. Ensures transparent fund allocation.</p>
+        </div>
+        <div class="team-card">
+          <img src="New%20folder/infomanager.jpg" alt="Comrade Ismail" style="width:100%; height:100px; object-fit:cover; border-radius:var(--radius) var(--radius) 0 0;">
+          <h3>Comrade Ismail</h3>
+          <div class="team-role">Information Manager</div>
+          <p>Data systems and digital infrastructure. Supports program tracking and reporting.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">�‍💼</div>
+          <h3>Waziri</h3>
+          <div class="team-role">Accountant</div>
+          <p>Financial operations and audits. Manages transactions and compliance.</p>
+        </div>
+        <div class="team-card">
+          <img src="New%20folder/mtendaji.jpg" alt="Majid Salum" style="width:100%; height:100px; object-fit:cover; border-radius:var(--radius) var(--radius) 0 0;">
+          <h3>Majid Salum</h3>
+          <div class="team-role">Mtendaji (Executive)</div>
+          <p>Program execution and implementation. Ensures smooth day-to-day operations.</p>
         </div>
       </div>
     </div>
